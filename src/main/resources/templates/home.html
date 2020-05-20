@@ -10,10 +10,12 @@
     <title>Clothes Shop</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/static/vendor/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/shop-homepage.css" rel="stylesheet">
+    <link href="../static/css/shop-homepage.css" th:href="@{/static/css/shop-homepage.css}" rel="stylesheet"
+    type="text/css">
 
 </head>
 
@@ -41,6 +43,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
                 </li>
             </ul>
         </div>
@@ -212,8 +217,8 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="../static/vendor/jquery/jquery.min.js"></script>
-<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendor/jquery/jquery.min.js" th:src="@{/static/vendor/jquery/jquery.min.js}"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/static/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 </html>
