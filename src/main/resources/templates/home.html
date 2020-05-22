@@ -10,11 +10,11 @@
     <title>Clothes Shop</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/static/vendor/bootstrap/css/bootstrap.min.css}"
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
           rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/shop-homepage.css" th:href="@{/static/css/shop-homepage.css}" rel="stylesheet"
+    <link th:href="@{/css/shop-homepage.css}" rel="stylesheet"
     type="text/css">
 
 </head>
@@ -79,13 +79,13 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+                        <img class="d-block img-fluid" th:src="@{/images/mens.png}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+                        <img class="d-block img-fluid" th:src="@{/images/womens.jpg}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+                        <img class="d-block img-fluid" th:src="@{/images/kids.jpg}" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -217,8 +217,8 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="//static/vendor/jquery/jquery.min.js" th:src="@{//static/vendor/jquery/jquery.min.js}"></script>
-<script src="//static/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{//static/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 </html>
