@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @Transactional
-public class FirstController {
+public class MainController {
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
