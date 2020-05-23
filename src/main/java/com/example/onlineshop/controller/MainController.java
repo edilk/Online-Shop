@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,4 +16,23 @@ public class MainController {
         ModelAndView model = new ModelAndView("home");
         return model;
     }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public ModelAndView about() {
+        ModelAndView model = new ModelAndView("about");
+        return model;
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView signUp() {
+        ModelAndView model = new ModelAndView("registration");
+        return model;
+    }
+
+    @RequestMapping(value = "/item", method = RequestMethod.GET)
+    public ModelAndView item() {
+        ModelAndView model = new ModelAndView("item");
+        return model;
+    }
+
 }
