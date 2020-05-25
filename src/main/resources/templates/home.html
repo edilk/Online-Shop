@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
 
     <meta charset="utf-8">
@@ -25,7 +24,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Clothes Shop</a>
+        <a class="navbar-brand" th:href="@{/home}">Clothes Shop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,7 +42,11 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
+                    <a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a>
+                    <a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"
+                       th:text="${#request.userPrincipal.name}"></a>
+
+                    <a th:if="${#request.userPrincipal == null}" class="nav-link" th:href="@{/login}">Login</a>
                 </li>
             </ul>
         </div>

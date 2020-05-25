@@ -23,12 +23,6 @@ public class MainController {
         return model;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView signUp() {
-        ModelAndView model = new ModelAndView("registration");
-        return model;
-    }
-
     @RequestMapping(value = "/item", method = RequestMethod.GET)
     public ModelAndView item() {
         ModelAndView model = new ModelAndView("item");

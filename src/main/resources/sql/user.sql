@@ -1,1 +1,0 @@
-INSERT INTO `user` (`user_id`, `email`, `password`, `name`) VALUES (2, "someone@mail.ru", 23456, "some");

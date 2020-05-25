@@ -18,7 +18,7 @@ public class User {
     private int id;
     @Column(name = "name")
     @NotEmpty(message = "*Please enter your name")
-    private String username;
+    private String name;
     @Column(name = "email")
     @Email(message = "*Please enter valid email")
     @NotEmpty(message = "*Please enter your email")
@@ -27,6 +27,12 @@ public class User {
     @NotEmpty(message = "*Please enter your password")
     @Length(min = 5, message = "*Your password length should be at least 5 characters")
     private String password;
+    @Column(name = "active")
+    private Integer active;
+    @Column(name = "status")
+    private String status;
+    @Column(name = "token")
+    private String token;
     @ManyToMany(cascade = CascadeType.DETACH )
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -40,12 +46,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -64,11 +70,22 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
+    public int getActive() { return active; }
+
+    public void setActive(Integer active) { this.active = active; }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
+
+    public String getToken() { return token; }
+
+    public void setToken(String token) { this.token = token; }
+
+    public Set<Role> getRoles() { return roles; }
 
     public void setRoles(Set roles) {
         this.roles = roles;
     }
+
 }
