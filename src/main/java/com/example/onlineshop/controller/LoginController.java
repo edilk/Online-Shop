@@ -3,20 +3,14 @@ package com.example.onlineshop.controller;
 import com.example.onlineshop.model.User;
 import com.example.onlineshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.UUID;
 
 @Controller
 @Transactional
@@ -27,7 +21,8 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
-        ModelAndView model = new ModelAndView("login");
+        ModelAndView model = new ModelAndView();
+        model.setViewName("login");
         return model;
     }
 
@@ -41,24 +36,22 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user,
-                                      BindingResult bindingResult) {
+    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView model = new ModelAndView();
-        User userExists = userService.findUserByEmail(user.getEmail());
+        User userExists = userService.findUserByName(user.getName());
         if (userExists != null) {
             bindingResult
-                    .rejectValue("email", "error.user",
-                            "*There is already exists user with this email");
+                    .rejectValue("name", "error.user",
+                            "There is already a user registered with the name provided");
         }
         if (bindingResult.hasErrors()) {
             model.setViewName("registration");
         } else {
-            user.setStatus("customer");
-            userService.saveUser(user, "CUSTOMER");
+            userService.saveUser(user);
+            model.addObject("successMessage", "User has been registered successfully");
             model.addObject("user", new User());
             model.setViewName("login");
         }
         return model;
     }
-
 }

@@ -1,6 +1,9 @@
 package com.example.onlineshop.model;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -8,6 +11,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "user")
 public class User {
@@ -28,64 +35,10 @@ public class User {
     @Length(min = 5, message = "*Your password length should be at least 5 characters")
     private String password;
     @Column(name = "active")
-    private Integer active;
-    @Column(name = "status")
-    private String status;
-    @Column(name = "token")
-    private String token;
-    @ManyToMany(cascade = CascadeType.DETACH )
+    private Boolean active;
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getActive() { return active; }
-
-    public void setActive(Integer active) { this.active = active; }
-
-    public String getStatus() { return status; }
-
-    public void setStatus(String status) { this.status = status; }
-
-    public String getToken() { return token; }
-
-    public void setToken(String token) { this.token = token; }
-
-    public Set<Role> getRoles() { return roles; }
-
-    public void setRoles(Set roles) {
-        this.roles = roles;
-    }
 
 }

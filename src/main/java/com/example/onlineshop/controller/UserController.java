@@ -36,25 +36,4 @@ public class UserController {
         model.addAttribute("user", user);
         return "profile";
     }
-
-    @RequestMapping("/deleteUser")
-    public String deleteUser(@RequestParam("id") int id, Principal principal) {
-        User user = userService.findUserByEmail(principal.getName());
-        userService.deleteUser(id);
-        return "redirect:/logout";
-    }
-
-    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public String updateUser(@Valid User user) {
-        userService.updateUser(user);
-        return "redirect:/userPage?username=" + user.getEmail();
-    }
-
-    @RequestMapping(value = "/updateUser", method = RequestMethod.GET)
-    public String updateUser(@RequestParam("id")int id, Model model) {
-        User user = userService.findUserById(id);
-        System.out.println(user.getPassword());
-        model.addAttribute("user", user);
-        return "updateUser";
-    }
 }

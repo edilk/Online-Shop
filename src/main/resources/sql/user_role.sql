@@ -1,0 +1,1 @@
+REPLACE INTO `user_role` VALUES (18,1);
