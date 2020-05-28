@@ -7,12 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
-import java.security.Principal;
-import java.util.ArrayList;
 
 @Controller
 @Transactional
@@ -31,8 +26,8 @@ public class UserController {
 
     @RequestMapping("/userPage")
     public String showUser(Model model, @RequestParam("username")
-            String email) {
-        User user = userService.findUserByEmail(email);
+            String name) {
+        User user = userService.findUserByEmail(name);
         model.addAttribute("user", user);
         return "profile";
     }

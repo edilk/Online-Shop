@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Clothes Shop</title>
+    <title>Home | Clothes Shop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -26,9 +26,6 @@
 
 <body>
 <!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
 
 <!-- Header Section Begin -->
 <header class="header-section">
@@ -46,11 +43,10 @@
             </div>
             <div class="ht-right">
                 <a th:href="@{/login}" th:if="${#request.userPrincipal == null}" class="login-panel"><i class="fa fa-user-circle"></i>Login</a>
-                <ul class="login-panel" th:if="${#request.userPrincipal !=null}">
-                    <a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"
-                       th:text="${#request.userPrincipal.name}"><i class="fa fa-user-circle"></i></a>
-                    <a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a>
-                </ul>
+
+                <a class="login-panel" th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"><i class="fa fa-user-circle"></i>My account</a>
+
+
                 <div class="lan-selector">
                     <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' th:data-image="@{/img/flag-1.jpg}" data-imagecss="flag yt"

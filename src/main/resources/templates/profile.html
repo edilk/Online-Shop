@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration | Clothes Shop</title>
+    <title>Home | Clothes Shop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
 </head>
 
 <body>
+<!-- Page Preloder -->
 
 <!-- Header Section Begin -->
 <header class="header-section">
@@ -42,8 +43,10 @@
             </div>
             <div class="ht-right">
                 <a th:href="@{/login}" th:if="${#request.userPrincipal == null}" class="login-panel"><i class="fa fa-user-circle"></i>Login</a>
-                <a class="login-panel" th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"
-                   th:text="${#request.userPrincipal.name}"><i class="fa fa-user-circle"></i></a>
+
+                <a class="login-panel" th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"><i class="fa fa-user-circle"></i>My account</a>
+
+
                 <div class="lan-selector">
                     <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' th:data-image="@{/img/flag-1.jpg}" data-imagecss="flag yt"
@@ -141,7 +144,7 @@
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
                     <a href="#"><i class="fa fa-home"></i> Home</a>
-                    <span>Register</span>
+                    <span>My account</span>
                 </div>
             </div>
         </div>
@@ -149,41 +152,17 @@
 </div>
 <!-- Breadcrumb Form Section Begin -->
 
-<!-- Register Section Begin -->
-<div class="register-login-section spad">
+<!-- Profile section Begin -->
+<section class="profile-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="register-form">
-                    <h2>Register</h2>
-                    <form th:action="@{/registration}" method="post" th:object="${user}" >
-                        <div class="group-input">
-                            <label for="name" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
-                            <input th:field="*{name}" type="text" id="name" name="name" placeholder="Name">
-                        </div>
-                        <div class="group-input">
-                            <label for="email" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
-                            <input th:field="*{email}" type="text" id="email" name="email" placeholder="Email">
-                        </div>
-                        <div class="group-input">
-                            <label for="password" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
-                            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password">
-                        </div>
-                        <div class="group-input">
-                            <label for="con-pass"></label>
-                            <input type="password" id="con-pass" placeholder="Confirm Password">
-                        </div>
-                        <button type="submit" class="site-btn register-btn">REGISTER</button>
-                    </form>
-                    <div class="switch-login">
-                        <a th:href="@{/login}" class="or-login">Or Login</a>
-                    </div>
-                </div>
+            <div class="col-lg-6">
+
             </div>
         </div>
     </div>
-</div>
-<!-- Register Form Section End -->
+</section>
+
 
 <!-- Footer Section Begin -->
 <footer class="footer-section">
@@ -214,7 +193,7 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Checkout</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Serivius</a></li>
                     </ul>
                 </div>
             </div>

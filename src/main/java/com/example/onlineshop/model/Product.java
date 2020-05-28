@@ -1,5 +1,7 @@
 package com.example.onlineshop.model;
 
+import com.example.onlineshop.Enum.Category;
+import com.example.onlineshop.Enum.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Data
 @Builder
@@ -25,7 +28,8 @@ public class Product {
     private String name;
     @NotEmpty
     @Column(name = "category")
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     @Column(columnDefinition = "LONGTEXT", name = "description")
     @NotEmpty
     private String description;
@@ -34,9 +38,24 @@ public class Product {
     @NotEmpty
     @Column(name = "price")
     private int price;
-    @Column(name = "photo")
-    private String photo;
-
-
+    @Column(name = "mainImg")
+    private String mainImg;
+    @Column(name="detailImg1")
+    private String detailImg1;
+    @Column(name="detailImg2")
+    private String detailImg2;
+    @Column(name="detailImg2")
+    private String detailImg3;
+    @Column(name = "like")
+    private int like;
+    @Column(name = "availability")
+    private Boolean availability;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "date")
+    private Date date;
+    @NotEmpty
+    @Column(name = "size")
+    @Enumerated(EnumType.STRING)
+    private Size size;
 
 }
