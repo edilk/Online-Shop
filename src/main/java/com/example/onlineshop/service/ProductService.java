@@ -14,7 +14,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public Product save(Product product) {
-        product.setSmallText(product.getText().substring(0, 100) + "...");
+        product.setSmallText(product.getDescription().substring(0, 100) + "...");
         return productRepository.save(product);
     }
 

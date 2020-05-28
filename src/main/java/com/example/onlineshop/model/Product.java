@@ -21,19 +21,21 @@ public class Product {
     @Column(name = "product_id")
     private int id;
     @NotEmpty
-    @Column(name = "name")
+    @Column(name = "prod_name")
     private String name;
     @NotEmpty
     @Column(name = "category")
     private String category;
-    @Column(columnDefinition = "LONGTEXT", name = "text")
+    @Column(columnDefinition = "LONGTEXT", name = "description")
     @NotEmpty
-    private String text;
+    private String description;
     @Column(name = "smallText", length = 700)
     private String smallText;
     @NotEmpty
     @Column(name = "price")
     private int price;
+    @Column(name = "photo")
+    private String photo;
 
 
 
