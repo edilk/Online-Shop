@@ -1,4 +1,4 @@
-package com.example.onlineshop.Enum;
+package com.example.onlineshop.enums;
 
 public enum Category {
     MEN,

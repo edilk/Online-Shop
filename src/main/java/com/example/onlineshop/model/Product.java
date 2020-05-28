@@ -1,7 +1,7 @@
 package com.example.onlineshop.model;
 
-import com.example.onlineshop.Enum.Category;
-import com.example.onlineshop.Enum.Size;
+import com.example.onlineshop.enums.Category;
+import com.example.onlineshop.enums.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,14 +11,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
-@Data
+/*@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "product")
+@Table(name = "product")*/
 public class Product {
-
+/*
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
@@ -37,14 +37,14 @@ public class Product {
     private String smallText;
     @NotEmpty
     @Column(name = "price")
-    private int price;
+    private double price;
     @Column(name = "mainImg")
     private String mainImg;
     @Column(name="detailImg1")
     private String detailImg1;
     @Column(name="detailImg2")
     private String detailImg2;
-    @Column(name="detailImg2")
+    @Column(name="detailImg3")
     private String detailImg3;
     @Column(name = "like")
     private int like;
@@ -56,6 +56,6 @@ public class Product {
     @NotEmpty
     @Column(name = "size")
     @Enumerated(EnumType.STRING)
-    private Size size;
+    private Size size;*/
 
 }

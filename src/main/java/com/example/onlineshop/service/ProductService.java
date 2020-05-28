@@ -1,19 +1,10 @@
 package com.example.onlineshop.service;
 
-import com.example.onlineshop.model.Product;
-import com.example.onlineshop.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 @Service
 public class ProductService {
-
+/*
     @Autowired
     private ProductRepository productRepository;
 
@@ -24,7 +15,7 @@ public class ProductService {
     }
 
     public List<Product> getTopFourByNewest() {
-        List<Product> list = productRepository.getAllByCategoryByDate();
+        List<Product> list = productRepository.getAllByDate();
         List<Product> topFour = new ArrayList<>();
         topFour.add(list.get(0));
         topFour.add(list.get(1));
@@ -38,7 +29,7 @@ public class ProductService {
     }
 
     public List<Product> getAll() {
-        return productRepository.getAllByCategoryByDate();
+        return productRepository.getAllByDate();
     }
 
     public Page<Product> findAll(Pageable pageable) {
@@ -56,5 +47,5 @@ public class ProductService {
     public void updateLikes(int id, int like) {
         Product product = productRepository.findById(id);
         product.setLike(product.getLike() + like);
-    }
+    }*/
  }

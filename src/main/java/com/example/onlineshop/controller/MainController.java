@@ -22,9 +22,9 @@ public class MainController {
         return model;
     }
 
-    @RequestMapping(value = "/item", method = RequestMethod.GET)
-    public ModelAndView item() {
-        ModelAndView model = new ModelAndView("item");
+    @RequestMapping(value = "/productDetails", method = RequestMethod.GET)
+    public ModelAndView product() {
+        ModelAndView model = new ModelAndView("productDetails");
         return model;
     }
 

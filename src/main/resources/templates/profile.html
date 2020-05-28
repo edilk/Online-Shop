@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home | Clothes Shop</title>
+    <title>Profile | Clothes Shop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -119,7 +119,7 @@
             <nav class="nav-menu mobile-menu">
                 <ul>
                     <li class="active"><a th:href="@{/home}">Home</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a th:href="@{/shop}">Shop</a></li>
                     <li><a href="#">Collection</a>
                         <ul class="dropdown">
                             <li><a href="#">Men's</a></li>
@@ -157,7 +157,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-
+                <h5><a class="login-panel" th:href="@{/logout}">Logout</a></h5>
             </div>
         </div>
     </div>
