@@ -404,8 +404,11 @@ ol {
 	padding-bottom: 15px;
 	border-right: 1px solid #e5e5e5;
 }
+.top-social a {
+	float: right;
+}
 
-.header-top .ht-right .top-social a {
+.header-top .ht-right {
 	color: #252525;
 	font-size: 14px;
 	display: inline-block;

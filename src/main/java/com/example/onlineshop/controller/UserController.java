@@ -20,8 +20,8 @@ public class UserController {
     public String find(@RequestParam(name = "input", required = true)
                        String email, Model model) {
         User list = userService.findUserByEmail(email);
-        model.addAttribute("client", list);
-        return "clients";
+        model.addAttribute("user", list);
+        return "profile";
     }
 
     @RequestMapping("/userPage")

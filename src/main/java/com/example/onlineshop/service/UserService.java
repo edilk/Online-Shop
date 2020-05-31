@@ -4,6 +4,8 @@ import com.example.onlineshop.model.Role;
 import com.example.onlineshop.model.User;
 import com.example.onlineshop.repository.RoleRepository;
 import com.example.onlineshop.repository.UserRepository;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -22,6 +25,7 @@ public class UserService {
     private RoleRepository roleRepository;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Autowired
     public UserService(UserRepository userRepository,

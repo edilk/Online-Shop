@@ -16,12 +16,6 @@ public class MainController {
         return model;
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
-    public ModelAndView about() {
-        ModelAndView model = new ModelAndView("about");
-        return model;
-    }
-
     @RequestMapping(value = "/productDetails", method = RequestMethod.GET)
     public ModelAndView product() {
         ModelAndView model = new ModelAndView("productDetails");

@@ -53,10 +53,7 @@
                     </select>
                 </div>
                 <div class="top-social">
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"><i class="ti-twitter-alt"></i></a>
-                    <a href="#"><i class="ti-linkedin"></i></a>
-                    <a href="#"><i class="ti-pinterest"></i></a>
+                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
                 </div>
             </div>
         </div>
@@ -160,8 +157,8 @@
                     </div>
                     <form th:action="@{/login}" method="POST" id="login">
                         <div class="group-input">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name">
+                            <label for="email">Email *</label>
+                            <input type="text" id="email" name="email">
                         </div>
                         <div class="group-input">
                             <label for="password">Password *</label>

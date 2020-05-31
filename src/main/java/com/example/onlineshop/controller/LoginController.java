@@ -5,11 +5,16 @@ import com.example.onlineshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -27,22 +32,20 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView registration() {
-        ModelAndView model = new ModelAndView();
+    public String showRegistration(WebRequest request, Model model) {
         User user = new User();
-        model.addObject("user", user);
-        model.setViewName("registration");
-        return model;
+        model.addAttribute("user", user);
+        return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+    public ModelAndView createNewUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         ModelAndView model = new ModelAndView();
-        User userExists = userService.findUserByName(user.getName());
+        User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
             bindingResult
-                    .rejectValue("name", "error.user",
-                            "There is already a user registered with the name provided");
+                    .rejectValue("email", "errors.user",
+                            "*There is already a user registered with the email provided");
         }
         if (bindingResult.hasErrors()) {
             model.setViewName("registration");

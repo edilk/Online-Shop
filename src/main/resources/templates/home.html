@@ -25,8 +25,6 @@
 </head>
 
 <body>
-<!-- Page Preloder -->
-
 <!-- Header Section Begin -->
 <header class="header-section">
     <div class="header-top">
@@ -44,7 +42,9 @@
             <div class="ht-right">
                 <a th:href="@{/login}" th:if="${#request.userPrincipal == null}" class="login-panel"><i class="fa fa-user-circle"></i>Login</a>
 
-                <a class="login-panel" th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"><i class="fa fa-user-circle"></i>My account</a>
+                <a class="login-panel" th:if="${#request.userPrincipal != null}"
+                   th:href="@{/userPage(username=${#request.userPrincipal.name})}"><i
+                        class="fa fa-user-circle"></i>My account</a>
 
 
                 <div class="lan-selector">
@@ -56,10 +56,7 @@
                     </select>
                 </div>
                 <div class="top-social">
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"><i class="ti-twitter-alt"></i></a>
-                    <a href="#"><i class="ti-linkedin"></i></a>
-                    <a href="#"><i class="ti-pinterest"></i></a>
+                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
                 </div>
             </div>
         </div>
@@ -216,16 +213,13 @@
             <div class="col-lg-3">
                 <div class="product-large set-bg" th:data-setbg="@{/img/products/women-large.jpg}">
                     <h2>Women’s</h2>
-                    <a href="#">Discover More</a>
+                    <a th:href="@{/productDetails}">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active">Newest Products</li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
@@ -333,10 +327,9 @@
             <div class="col-lg-8">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <ul>
+                            <li class="active">Newest Products</li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
@@ -456,10 +449,9 @@
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <ul>
+                            <li class="active">Newest Products</li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">

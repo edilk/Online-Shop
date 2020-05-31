@@ -116,7 +116,7 @@
             <nav class="nav-menu mobile-menu">
                 <ul>
                     <li class="active"><a th:href="@{/home}">Home</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a th:href="@{/shop}">Shop</a></li>
                     <li><a href="#">Collection</a>
                         <ul class="dropdown">
                             <li><a href="#">Men's</a></li>
@@ -140,7 +140,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a th:href="@{/home}"><i class="fa fa-home"></i> Home</a>
                     <span>Register</span>
                 </div>
             </div>
@@ -156,22 +156,22 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="register-form">
                     <h2>Register</h2>
-                    <form th:action="@{/registration}" method="post" th:object="${user}" >
+                    <form th:action="@{/registration}" method="post" th:object="${user}" onsubmit="return checkPassword(this)">
                         <div class="group-input">
-                            <label for="name" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+                            <label for="name" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: #f80000;"></label>
                             <input th:field="*{name}" type="text" id="name" name="name" placeholder="Name">
                         </div>
                         <div class="group-input">
-                            <label for="email" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+                            <label for="email" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: #f80000;"></label>
                             <input th:field="*{email}" type="text" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="group-input">
-                            <label for="password" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+                            <label for="password" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: #f80000;"></label>
                             <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password">
                         </div>
                         <div class="group-input">
-                            <label for="con-pass"></label>
-                            <input type="password" id="con-pass" placeholder="Confirm Password">
+                            <label for="matchingPassword" th:text="${message}" style="color: #f80000;"></label>
+                            <input th:field="*{matchingPassword}" type="password" id="matchingPassword" name="matchingPassword" placeholder="Confirm Password">
                         </div>
                         <button type="submit" class="site-btn register-btn">REGISTER</button>
                     </form>
@@ -261,6 +261,19 @@
 <!-- Footer Section End -->
 
 <!-- Js Plugins -->
+<script>
+    function checkPassword(form) {
+        password = form.password.value;
+        matchingPassword = form.matchingPassword.value;
+
+        if (password != matchingPassword) {
+            alert("Passwords don't match, try again")
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
 <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery-ui.min.js}"></script>
